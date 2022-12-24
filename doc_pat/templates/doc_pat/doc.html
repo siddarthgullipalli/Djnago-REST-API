@@ -1,0 +1,19 @@
+{% block content %}
+
+
+<div>
+    <a href="{% url 'Logout' %}">Logout</a>
+</div>
+<div class="header-bar">
+        <a href="{% url 'Patient_create' %}">New patient</a>
+</div>
+
+<div class="header-bar">
+    <a href="{% url 'Patientlist' %}">Existing Patient</a>
+</div>
+
+
+
+
+
+{% endblock content %}
