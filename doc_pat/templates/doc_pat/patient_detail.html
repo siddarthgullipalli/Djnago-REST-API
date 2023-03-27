@@ -1,3 +1,7 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
 {% block content %}
 
 <h2>Patient name : {{object.name}}</h2>
@@ -6,6 +10,5 @@
 
 <p>Prescription from doctor: {{object.Prescription}}</p>
 
-<button><a href="">for visualization</a></button>
 
 {% endblock content %}

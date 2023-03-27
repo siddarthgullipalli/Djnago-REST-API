@@ -27,6 +27,18 @@ class Patientlist(ListView , LoginRequiredMixin):
     model = patient
     context_object_name = 'patients'
 
+    # def get_context_data(self, **kwargs) :
+    #     context =  super().get_context_data(**kwargs)
+    #     context['patients'] = context['patients'].filter(user= self.request.)
+        
+    #     search_input = self.request.GET.get('searchbox') or ''
+    #     if search_input:
+    #         context['patients'] = context['patients'].filter(name__startswith
+    #          = search_input)
+
+    #     context['search_input'] = search_input
+    #     return context
+
 class Disease(UpdateView , LoginRequiredMixin):
     model = patient
     fields = ['Disease','Prescription']
