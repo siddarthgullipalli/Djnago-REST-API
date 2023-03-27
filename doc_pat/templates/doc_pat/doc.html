@@ -1,16 +1,45 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
 {% block content %}
 
+<body style="background-image:url('https://c8.alamy.com/comp/2BH10TB/abstract-blurred-white-doctor-medical-office-room-background-concept-for-blur-empty-space-grey-modern-hospital-clinic-pharmacy-light-clean-interior-r-2BH10TB.jpg') ;">
+    
 
-<div>
-    <a href="{% url 'Logout' %}">Logout</a>
-</div>
-<div class="header-bar">
-        <a href="{% url 'Patient_create' %}">New patient</a>
+
+<nav class="navbar navbar-inverse" style="background-color: aqua;">
+    <div class="container-fluid">
+      <div class="navbar-header" style="font-size: 30px;">
+        Welcome Dr. {{request.user|title}}
+      </div>
+      <ul class="nav navbar-nav">
+        <li style="width: 100%; display:  inline-block; padding: 10%;text-decoration: none; background-color: aqua; margin: 15%;"><a href="{% url 'Logout' %}">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<div class="shadow-lg p-3 mb-5 bg-blue rounded" style=" display: inline-block; margin:10%; width: 40%; padding-left: 10%;margin-left: 30%; ">
+
+    <div class="text-center">
+<div >
+ 
+        <a href="{% url 'Patient_create' %}" style="width: 30%; display:  inline-block; padding: 2%;border-radius: 10%;text-decoration: none; background-color: aqua; margin: 5%;">New patient</a>
+
 </div>
 
-<div class="header-bar">
-    <a href="{% url 'Patientlist' %}">Existing Patient</a>
+
+
+
+<div >
+    <a href="{% url 'Patientlist' %}" style="width: 30%;display: inline-block;padding: 2%;border-radius: 10%;text-decoration: none; background-color: aqua;margin: 5%;">Existing Patient</a>
 </div>
+</div>
+</div>
+
+</body>
+
+
 
 
 

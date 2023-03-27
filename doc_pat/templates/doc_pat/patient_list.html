@@ -1,21 +1,64 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 {% block content %}
+<body style="background-color:#e4f0f2">
+<nav class="navbar navbar-inverse" style="background-color: aqua;">
+    <div class="container-fluid">
+      <div class="navbar-header" style="font-size: 30px;">
+        Welcome Dr. {{request.user|title}}
+      </div>
+      <ul class="nav navbar-nav">
+        <li style="width: 100%; display:  inline-block; padding: 10%;text-decoration: none; background-color: aqua; margin: 15%;"><a href="{% url 'doctorpage' %}">Back</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<br/>
+<br/>
+
+<div class="form-outline mb-4">
+    <label class="form-label" for="datatable-search-input" style="font-size:x-large; font-family: Arial, Helvetica, sans-serif;">Search</label>
+    <input type="search" class="form-control" id="datatable-search-input">
+
+    <form method="GET" style="margin-top:20px;display:flex;"> 
+        <input type="text"  name="searchbox" value="{{serach_input}}" placeholder="search here">
+        <input class="button" type="submit" value="Search">
+        <!-- <a id="add-link"  href="{% url 'doctorpage' %}">&#x2b;</a> -->
+    
+    </form>
+
+  </div>
 
 
-<div>
-    <a href="{% url 'doctorpage' %}">Back</a>
-</div>
 
-<div>
+<div id="datatable">
+
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+          </tr>
+        </thead>
+
+        <tbody>
     {% for patient in patients %}
-        <div>
-            <a href="{% url 'disease' patient.id %}">{{patient}}</a>
-        </div>
-    {% empty %}
-    <h3>No patients </h3>
+          <tr>
+            <!-- <th scope="row">1</th> -->
+            <td>{{patient.id}}</td>
+            <td><a href="{% url 'disease' patient.id %}">{{patient.name}}</a></td>
+            <td>{{patient.age}}</td>
+          </tr>
     {% endfor %}
+        </tbody>
+      </table>
+        <div>
 
     
 </div>
+</body>
 
 
 {% endblock content %}

@@ -1,25 +1,55 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 {% block content %}
+<body style="background-image:url('https://c8.alamy.com/comp/2BH10TB/abstract-blurred-white-doctor-medical-office-room-background-concept-for-blur-empty-space-grey-modern-hospital-clinic-pharmacy-light-clean-interior-r-2BH10TB.jpg') ;">
+<div class="shadow-lg p-3 mb-5 bg-blue rounded" style=" display: inline-block; margin:  auto; width: 50%; padding-left: 10%;margin: 10%; ">
 
-<div class="header-bar">
-    <h1>Login</h1>
+<legend style="text-align: center;">Login</legend>
+</br>
+<form method="POST">
+    {% csrf_token %}
+    
 
-</div>
-
-<div class="card-body">
-    <form method="POST">
-        {% csrf_token %}
-        <label>{{form.username.label}}</label>
+    <div class="text-center">
+        <!-- <label>{{form.username.label}}</label>
         {{form.username}}
 
         <label>{{form.password.label}}</label>
-        {{form.password}}
+        {{form.password}} -->
+        
 
-        <input class="button" type="submit" value="login">
-    </form>
-    <p> Dont have an account? <a href="{% url 'Register' %}">Register</a></p>
+      <label class="form-label" for="form2Example1">Username {{form.username}}</label>
+    </div>
+</br>
+  
+
+    <div class="text-center">
+        
+
+      <label class="form-label" for="form2Example2">Password {{form.password}}</label>
+    </div>
+</br>
+  
+    <!-- 2 column grid layout for inline styling -->
+    <div class="row mb-4">
+  
+      <div class="text-center">
+        <!-- Simple link -->
+        <a href="#!">Forgot password?</a>
+      </div>
+    </div>
+  
+    <!-- Submit button -->
+    <div class="text-center">
+   <a href="{% url 'Register' %}"><button  class="btn btn-primary btn-block mb-4" value="login" >Sign in</button></a> 
+   <!-- <input class="button" type="submit" value="login"> -->
+    <!-- Register buttons -->
+    <div class="text-center">
+      <p>Not a member? <a href="{% url 'Register' %}">Register</a></p>
+ 
+  </form>
 </div>
-
-
-
+</body>
 
 {% endblock content %}
